@@ -67,7 +67,7 @@ export class AppProcessor {
 	 * @return {Object}
 	 */
 	createNewObject(model, obj) {
-		const tofill = model.config['fillables'];
+		const tofill = model.fillables;
 		const allowedPayload = _.pick(obj, ...tofill);
 		return new model(allowedPayload).save();
 	}
@@ -79,7 +79,7 @@ export class AppProcessor {
 	 * @return {Object}
 	 */
 	updateObject(model, current, obj) {
-		const tofill = model.config['fillables'];
+		const tofill = model.fillables;
 		const allowedPayload = _.pick(obj, ...tofill);
 		_.extend(current, allowedPayload);
 		return current.save();
