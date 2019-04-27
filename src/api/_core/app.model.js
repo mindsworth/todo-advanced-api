@@ -10,28 +10,10 @@ import { AppProcessor } from './app.processor';
  */
 function AppSchema(...args) {
 	Schema.apply(this, args);
-	/**
-	 * @param {Object} obj The object to perform validation on
-	 * @return {Validator} The validator object with the specified rules.
-	 */
-	this.statics.validateCreate = (obj = {}) => {
-		let rules = {};
-		return new Validator(obj, rules);
-	};
 
-	/**
-	 * @return {Object} The validator object with the specified rules.
-	 */
-	this.statics.uniques = function () {
-		return {};
-	};
-
-	/**
-	 * @return {Object} The validator object with the specified rules.
-	 */
-	this.statics.returnIfFound = function () {
-		return false;
-	};
+	this.statics.softDelete = false;
+	this.statics.uniques = [];
+	this.statics.fillables = [];
 
 	/**
 	 * @return {Object} The validator object with the specified rules.
@@ -46,16 +28,10 @@ function AppSchema(...args) {
 	this.statics.getProcessor = () => {
 		return new AppProcessor();
 	};
-	/**
-	 * @return {Object} The validator object with the specified rules.
-	 */
-	this.statics.getValidator = () => {
-		return new AppValidation();
-	};
 }
 
 util.inherits(AppSchema, Schema);
 /**
- * @typedef BaseSchema
+ * @typedef AppSchema
  */
 export default AppSchema;

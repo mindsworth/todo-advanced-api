@@ -33,11 +33,9 @@ TodoSchema.statics.searchQuery = (q) => {
 	];
 };
 
-TodoSchema.statics.config = {
-	softDelete: false,
-	uniques: ['title'],
-	fillables: ['title', 'description', 'active'],
-};
+TodoSchema.statics.softDelete = true;
+TodoSchema.statics.uniques =  ['title'];
+TodoSchema.statics.fillables =  ['title', 'description', 'active'];
 
 /**
  * @typedef TodoSchema

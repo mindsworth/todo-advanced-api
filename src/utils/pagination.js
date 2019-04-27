@@ -1,5 +1,5 @@
 import queryString from 'query-string';
-import url, {URL} from 'url';
+import url, { URL } from 'url';
 import config from 'config';
 
 /**
